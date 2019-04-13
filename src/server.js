@@ -15,8 +15,11 @@ io.on("connection", socket => {
     });
 });
 
+const databaseUser = process.env.DATABASE_USER || 'nagabox';
+const databasePassword = process.env.DATABASE_PASSWORD || 'nagabox';
+const database = process.env.DATABASE || 'nagabox';
 mongoose.connect(
-    "mongodb+srv://nagabox:nagabox@cluster0-xtdh1.mongodb.net/nagabox?retryWrites=true", 
+    `mongodb+srv://${databaseUser}:${databasePassword}@cluster0-xtdh1.mongodb.net/${database}?retryWrites=true`, 
     {
         useNewUrlParser: true
     }
